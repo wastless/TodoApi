@@ -1,7 +1,6 @@
 # Todo API
 
-A web API with [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core).
-Based on this [Microsft tutorial](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api).
+A [Web API](https://en.wikipedia.org/wiki/Web_API) with [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core).
 
 ## How to use
 
@@ -24,7 +23,7 @@ https://localhost:5001/api/TodoItems
 * Scaffold a controller with CRUD methods.
 * Configure routing, URL paths, and return values.
 * Call the web API with Postman.
-* At the end, having a web API that can manage "to-do" items stored in a database.  (DB 'in memory' for this example)
+* At the end, having a web API that can manage "to-do" items stored in a database.  (DB _in memory_ for this example)
 
 ## Overview
 
@@ -42,6 +41,7 @@ DELETE | `/api/TodoItems/{id}` | Delete an item          | None       | None
 
 ![Architecture](./Documentation/Architecture.png)
 
-## Build
+## Credit and tools
 
 * [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+* Based on this [Microsoft tutorial](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api).
