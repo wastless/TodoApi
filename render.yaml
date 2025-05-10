@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: todoapi
+    env: dotnet
+    buildCommand: dotnet build
+    startCommand: dotnet TodoApi.dll
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_URLS
+        value: http://+:10000 
