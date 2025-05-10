@@ -62,7 +62,7 @@ namespace TodoApi.Controllers
             }
 
             todoItem.Name = todoItemDTO.Name;
-            todoItem.IsComplete = todoItemDTO.IsComplete;           
+            todoItem.IsComplete = todoItemDTO.IsComplete;
 
             try
             {
@@ -70,7 +70,7 @@ namespace TodoApi.Controllers
             }
             catch (DbUpdateConcurrencyException) when (!TodoItemExists(id))
             {
-                return NotFound();                
+                return NotFound();
             }
 
             return NoContent();
@@ -80,7 +80,7 @@ namespace TodoApi.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<TodoItemDTO>> CreateTodoItem(TodoItemDTO todoItemDTO)
+        public async Task<ActionResult<TodoItemDTO>> PostTodoItem(TodoItemDTO todoItemDTO)
         {
             var todoItem = new TodoItem
             {
@@ -90,8 +90,11 @@ namespace TodoApi.Controllers
 
             _context.TodoItems.Add(todoItem);
             await _context.SaveChangesAsync();
-            
-            return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, ItemToDTO(todoItem));
+
+            return CreatedAtAction(
+                nameof(GetTodoItem),
+                new { id = todoItem.Id },
+                ItemToDTO(todoItem));
         }
 
         // DELETE: api/TodoItems/5
@@ -117,10 +120,10 @@ namespace TodoApi.Controllers
 
         private static TodoItemDTO ItemToDTO(TodoItem todoItem) =>
             new TodoItemDTO
-        {
-            Id = todoItem.Id,
-            Name = todoItem.Name,
-            IsComplete = todoItem.IsComplete
-        };    
+            {
+                Id = todoItem.Id,
+                Name = todoItem.Name,
+                IsComplete = todoItem.IsComplete
+            };
     }
 }
