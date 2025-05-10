@@ -1,9 +1,13 @@
 services:
   - type: web
     name: todoapi
-    env: dotnet
-    buildCommand: dotnet build
-    startCommand: dotnet TodoApi.dll
+    env: node
+    buildCommand: |
+      npm install
+      dotnet publish -c Release -o ./publish
+    startCommand: |
+      npm install -g dotnet-runtime
+      dotnet-runtime ./publish/TodoApi.dll
     envVars:
       - key: ASPNETCORE_ENVIRONMENT
         value: Production

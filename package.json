@@ -1,0 +1,11 @@
+{
+  "name": "todoapi",
+  "version": "1.0.0",
+  "description": "Todo API on Render",
+  "scripts": {
+    "start": "dotnet-runtime ./publish/TodoApi.dll"
+  },
+  "dependencies": {
+    "dotnet-runtime": "^1.0.0"
+  }
+} 
